@@ -2,14 +2,20 @@ import config from '../config.json';
 import styled from 'styled-components';
 import { CSSReset } from '../src/components/CSSReset';
 import { StyledTimeline } from '../src/components/Timeline';
-// import Menu from '../src/components/Menu';
+import Menu from '../src/components/Menu';
 
 function HomePage() {
-	const homePageStyle = { backgroundColor: 'red' };
+	// const homePageStyle = { backgroundColor: 'red' };
 	return (
 		<>
 			<CSSReset />
-			<div style={homePageStyle}>
+			<div
+				style={{
+					display: 'flex',
+					flexDirection: 'column',
+					flex: 1,
+				}}
+			>
 				<Menu />
 				<Header />
 				<Timeline playlists={config.playlists}>Content</Timeline>
@@ -20,14 +26,14 @@ function HomePage() {
 
 export default HomePage;
 
-function Menu() {
-	return <div>Menu</div>;
-}
+// function Menu() {
+// 	return <div>Menu</div>;
+// }
 
 const StyledHeader = styled.div`
 	img {
-		width: 5rem;
-		height: 5rem;
+		width: 10rem;
+		height: 10rem;
 		border-radius: 50%;
 	}
 	.user-info {
@@ -36,6 +42,9 @@ const StyledHeader = styled.div`
 		width: 100%;
 		padding: 1rem 32rem;
 		gap: 1rem;
+		margin-top: 3.5rem;
+		margin-left: -30rem;
+		/* background-image: url('../src/components/assets/alexander-shatov-niUkImZcSP8-unsplash (1).jpg'); */
 	}
 `;
 
