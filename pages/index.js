@@ -1,7 +1,6 @@
 import React from 'react';
 import config from '../config.json';
 import styled from 'styled-components';
-import { CSSReset } from '../src/components/CSSReset';
 import { StyledTimeline } from '../src/components/Timeline';
 import Menu from '../src/components/Menu';
 
@@ -10,7 +9,6 @@ function HomePage() {
 	const [searchValue, setSearchValue] = React.useState(' ');
 	return (
 		<>
-			<CSSReset />
 			<div
 				style={{
 					display: 'flex',
@@ -90,7 +88,7 @@ function Timeline({ searchValue, ...props }) {
 				console.log(videos); */
 				}
 				return (
-					<section>
+					<section key={playlistName}>
 						<h2>{playlistName}</h2>
 						<div>
 							{videos
@@ -101,7 +99,7 @@ function Timeline({ searchValue, ...props }) {
 								})
 								.map((video) => {
 									return (
-										<a href={video.url}>
+										<a key={video.url} href={video.url}>
 											<img src={video.thumb} />
 											<span>{video.title}</span>
 										</a>
